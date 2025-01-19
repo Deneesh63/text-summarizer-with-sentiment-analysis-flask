@@ -1,0 +1,5 @@
+Flask==2.3.2
+transformers==4.34.0
+torch==2.0.1
+vaderSentiment==3.3.2
+mysql-connector-python==8.1.0
