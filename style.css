@@ -1,0 +1,136 @@
+/* Font Settings */
+.kanit-regular, button, textarea{
+    font-family: "Kanit", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Body Background */
+body {
+    background-color: #b2eef9;
+    margin: 0;
+}
+
+/* Video Container Styling */
+.video-container {
+    width: 100%; /* Full width */
+    height: 500px; /* Fixed height */
+    overflow: hidden; /* Ensure video doesn't overflow */
+    position: relative; /* Stack properly with content */
+    z-index: -1; /* Send the video to the background */
+}
+
+.video-container video {
+    width: 100%; /* Full width */
+    height: 500px; /* Fixed height */
+    object-fit: cover; /* Cover the container without distortion */
+    display: block; /* Remove inline styling gaps */
+}
+
+/* Main Content Styling */
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    color: #040969;
+    z-index: 1; /* Place content above the video */
+    position: relative;
+    background-color: #b2eef9;
+}
+
+/* Text Area Styling */
+.custom_textarea::placeholder {
+    color: white;
+    font-style: italic; 
+    font-family: "Kanit", serif;
+    font-weight: 400;
+}
+
+textarea {
+    width: 98%;
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+    background-color: #13277E;
+    border: 5px solid white;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    background-color: #285A93;
+    color: white;
+    cursor: pointer;
+    width: 200px;
+}
+
+button:hover {
+    background-color: #040969;
+}
+
+/* History Entries Styling */
+.history-entry {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.history-entry button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.history-entry button:hover {
+    background-color: #0056b3;
+}
+
+/* History Container Styling */
+.history-container {
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: scroll;
+    border: 5px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #040969; /* Background color for scrollable area */
+}
+
+/* Original Text Page Styling */
+.original-container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    color: #040969;
+    background-color: #b2eef9;
+    border: 5px solid white;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.original-container p {
+    color: #13277E;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+/* Back to Home Button */
+.back-home-button {
+    padding: 10px 20px;
+    background-color: #285A93;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Kanit", serif;
+    display: inline-block;
+}
+
+.back-home-button:hover {
+    background-color: #040969;
+}

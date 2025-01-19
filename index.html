@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="kanit-regular">
+    <!-- Background Video Section -->
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="{{ url_for('static', filename='bg.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Text Summarizer</h1>
+        <form action="/" method="POST">
+            <textarea class="custom_textarea" name="text" rows="10" placeholder="Enter text to summarize..." cols="50">{{ original_text }}</textarea>
+            <br>
+            <button type="submit">Summarize</button>
+        </form>
+
+        {% if summary %}
+            <h2>Summary:</h2>
+            <p>{{ summary }}</p>
+            <p><strong>Sentiment:</strong> {{ sentiment }} (Score: {{ sentiment_score }})</p>
+        {% endif %}
+
+        <h2>Summary History</h2>
+        <div class="history-container">
+            {% for entry in history %}
+                <div class="history-entry" 
+                     style="background-color: {% if entry[2] == 'Positive' %}green{% elif entry[2] == 'Negative' %}red{% else %}yellow{% endif %}; 
+                            color: {% if entry[2] == 'Positive' or entry[2] == 'Negative' %}white{% else %}black{% endif %};
+                            border: 2px solid white;
+                            border-radius: 5px; padding: 10px;">
+                    <p><strong>Summary:</strong> {{ entry[1] }}</p>
+                    <p><strong>Sentiment:</strong> {{ entry[2] }}</p>
+                    <form action="/show_original" method="POST" style="display: inline;">
+                        <input type="hidden" name="summary_id" value="{{ entry[0] }}">
+                        <button type="submit">Show Original Text</button>
+                    </form>
+                    <form action="/delete_summary" method="POST" style="display: inline;">
+                        <input type="hidden" name="summary_id" value="{{ entry[0] }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
