@@ -26,10 +26,6 @@ This project is a **Text Summarizer Application** built using Flask, T5 Transfor
    - Stores original text, summaries, sentiment, and timestamps in a **MySQL** database.
    - Users can view and delete stored summaries conveniently.
 
-5. **Background Aesthetics**:
-
-   - Includes a background video for a modern and engaging user experience.
-
 ---
 
 ## How to Run the Project
